@@ -6,7 +6,7 @@ import java.lang.reflect.Modifier;
 public class Main {
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
 
-        Tasks tasks = new Tasks();
+        TasksElementary tasks = new TasksElementary();
 
         Method[] methods = tasks.getClass().getDeclaredMethods();
 

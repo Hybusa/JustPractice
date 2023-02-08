@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 import kuzLib.*;
 
 
-public class Tasks {
+public class TasksElementary {
 
     /*    Elementary
         Write a program that prints ‘Hello World’ to the screen.
@@ -130,8 +130,26 @@ public class Tasks {
 
     }
 
+    public void task11(){
+        System.out.println("sum of an alternating series where each element of the series is an expression of the form " +
+                "((-2)^(k+1))/(2*k-1)" +
+                " from 1 to a million, multiplied by 4.");
+
+        double sum=0;
+        for(int i = 1; i <= 1000000; i++)
+        {
+            sum += doMath(i);
+        }
+        System.out.println(4*sum);
+    }
+
+
+    private double doMath(int k) {
+       return Math.pow(-1,(k++))/(2*k-1);
+    }
 
     private boolean isPrime(int num) {
+
         return IntStream.rangeClosed(2, (int) (Math.sqrt(num))).allMatch(n -> num % n != 0);
     }
 
