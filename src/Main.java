@@ -6,16 +6,29 @@ import java.lang.reflect.Modifier;
 public class Main {
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
 
-        TasksElementary tasks = new TasksElementary();
+        TasksElementary tasksElementary = new TasksElementary();
 
-        Method[] methods = tasks.getClass().getDeclaredMethods();
-
-        for(Method method : methods)
+        Method[] methodsElementary = tasksElementary.getClass().getDeclaredMethods();
+/*
+        for(Method method : methodsElementary)
         {
             if(Modifier.isPublic(method.getModifiers()) && !method.isVarArgs()) {
-                method.invoke(tasks);
+                method.invoke(tasksElementary);
+                System.out.println();
+            }
+        }*/
+
+        TasksListsStrings tasksListsStrings = new TasksListsStrings();
+
+        Method[] methodsListsStrings = tasksListsStrings.getClass().getDeclaredMethods();
+
+        for(Method method : methodsListsStrings)
+        {
+            if(Modifier.isPublic(method.getModifiers()) && !method.isVarArgs()) {
+                method.invoke(tasksListsStrings);
                 System.out.println();
             }
         }
+
     }
 }
