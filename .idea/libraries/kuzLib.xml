@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="kuzLib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Libs/kuzLib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
