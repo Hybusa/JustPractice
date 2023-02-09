@@ -1,6 +1,7 @@
 import kuzLib.kuz;
 
 import java.lang.reflect.Parameter;
+import java.math.BigInteger;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -76,153 +77,339 @@ public class TasksListsStrings {
 */
 
 
-/*
-    public void task1() {
-        Optional optionalInteger = nums.stream().max(Integer::compare);
+    /*
+        public void task1() {
+            Optional optionalInteger = nums.stream().max(Integer::compare);
 
-        if (optionalInteger.isPresent())
-            System.out.println("Returned " + optionalInteger.get());
-        else
-            System.out.println("no such");
-    }
-
-
-    public void task2() {
-        nums.stream();
-    }
-
-    public void task3() {
-        System.out.println("Enter a number to check if it is present in an array of "
-                + SIZE + " elements. Ranging from " + MIN + " to " + MAX);
-
-        int num = kuz.inputCheckNumberInRange(MIN, MAX);
-
-        if (nums.stream().anyMatch(n -> n == num))
-            System.out.println("It is there");
-        else
-            System.out.println("It is not there");
-    }
-
-    public void task4() {
-        for (int i = 1; i < nums.size(); i += 2) {
-            System.out.print(nums.get(i) + " ");
-        }
-    }
-
-    public void task5() {
-        System.out.println("Sum of list with stream");
-        int sum = 0;
-        long start =  System.nanoTime();
-        sum = nums.stream().mapToInt(n -> n.intValue()).sum();
-        long stop = System.nanoTime();
-
-        System.out.println("Sum is: " + sum + " time took - " + (stop-start));
-    }
-
-
-    public void task6(){
-        System.out.println("Enter a string to check if it is a palindrome");
-        Scanner input = new Scanner(System.in);
-        if(input.hasNextLine())
-        {
-            String inputLine = input.nextLine();
-            StringBuilder sb = new StringBuilder(inputLine);
-            if(sb.reverse().toString().equalsIgnoreCase(inputLine))
-                System.out.println("it is a palindrome");
+            if (optionalInteger.isPresent())
+                System.out.println("Returned " + optionalInteger.get());
             else
-                System.out.println("it is not a palindrome");
+                System.out.println("no such");
         }
-        else
-            System.out.println("Input was wrong");
-    }
 
 
-
-    public void task7(){
-        System.out.println("Sum of list with for loop");
-        long start = System.nanoTime();
-        int sum= 0;
-        for(int i : nums)
-        {
-            sum += i;
+        public void task2() {
+            nums.stream();
         }
-        long stop = System.nanoTime();
-        System.out.println("Sum is: " + sum + " time took - " + (stop-start));
 
-        System.out.println("Sum of list with while loop");
-        start = System.nanoTime();
-        sum= 0;
-        int i = 0;
-        while (i < nums.size())
-        {
-            sum += nums.get(i++);
+        public void task3() {
+            System.out.println("Enter a number to check if it is present in an array of "
+                    + SIZE + " elements. Ranging from " + MIN + " to " + MAX);
+
+            int num = kuz.inputCheckNumberInRange(MIN, MAX);
+
+            if (nums.stream().anyMatch(n -> n == num))
+                System.out.println("It is there");
+            else
+                System.out.println("It is not there");
         }
-        stop = System.nanoTime();
-        System.out.println("Sum is: " + sum + " time took - " + (stop-start));
 
-        System.out.println("Sum of list with recursion");
-        start = System.nanoTime();
-
-        sum = intSum(nums, nums.size());
-
-        stop = System.nanoTime();
-        System.out.println("Sum is: " + sum + " time took - " + (stop-start));
-
-    }
-
-
-
-    public void task8() {
-        System.out.println("Finding prefect first 20 perfect squares in the list");
-
-        List<Integer> result = new ArrayList<>();
-        int i = 0;
-        int counter = 0;
-        while (counter < 20 && i < nums.size()) {
-            if (isAPerfectSquare(nums.get(i))) {
-                result.add(nums.get(i));
-                counter++;
+        public void task4() {
+            for (int i = 1; i < nums.size(); i += 2) {
+                System.out.print(nums.get(i) + " ");
             }
-            i++;
         }
-        System.out.println(result);
-    }
 
-*/
-    public void task9(){
-        List<Integer> nums = createNumberList();
-        nums.sort(Integer::compare);
-        List<Character> letters = createCharList();
-        letters.sort(Character::compare);
+        public void task5() {
+            System.out.println("Sum of list with stream");
+            int sum = 0;
+            long start =  System.nanoTime();
+            sum = nums.stream().mapToInt(n -> n.intValue()).sum();
+            long stop = System.nanoTime();
+
+            System.out.println("Sum is: " + sum + " time took - " + (stop-start));
+        }
+
+
+        public void task6(){
+            System.out.println("Enter a string to check if it is a palindrome");
+            Scanner input = new Scanner(System.in);
+            if(input.hasNextLine())
+            {
+                String inputLine = input.nextLine();
+                StringBuilder sb = new StringBuilder(inputLine);
+                if(sb.reverse().toString().equalsIgnoreCase(inputLine))
+                    System.out.println("it is a palindrome");
+                else
+                    System.out.println("it is not a palindrome");
+            }
+            else
+                System.out.println("Input was wrong");
+        }
+
+
+
+        public void task7(){
+            System.out.println("Sum of list with for loop");
+            long start = System.nanoTime();
+            int sum= 0;
+            for(int i : nums)
+            {
+                sum += i;
+            }
+            long stop = System.nanoTime();
+            System.out.println("Sum is: " + sum + " time took - " + (stop-start));
+
+            System.out.println("Sum of list with while loop");
+            start = System.nanoTime();
+            sum= 0;
+            int i = 0;
+            while (i < nums.size())
+            {
+                sum += nums.get(i++);
+            }
+            stop = System.nanoTime();
+            System.out.println("Sum is: " + sum + " time took - " + (stop-start));
+
+            System.out.println("Sum of list with recursion");
+            start = System.nanoTime();
+
+            sum = intSum(nums, nums.size());
+
+            stop = System.nanoTime();
+            System.out.println("Sum is: " + sum + " time took - " + (stop-start));
+
+        }
+
+
+
+        public void task8() {
+            System.out.println("Finding prefect first 20 perfect squares in the list");
+
+            List<Integer> result = new ArrayList<>();
+            int i = 0;
+            int counter = 0;
+            while (counter < 20 && i < nums.size()) {
+                if (isAPerfectSquare(nums.get(i))) {
+                    result.add(nums.get(i));
+                    counter++;
+                }
+                i++;
+            }
+            System.out.println(result);
+        }
+
+    public void task9() {
+
+        System.out.println("concatenates two lists");
+        List<Integer> nums = createNumberList(10);
+        List<Character> letters = createCharList(10);
         List<Object> result = new ArrayList<>();
 
-        for(int i = 0; i < nums.size(); i++)
-        {
-            result.add(nums.get(i));
+        result.addAll(nums);
+        result.addAll(letters);
+
+        System.out.println(result);
+    }
+
+    public void task10() {
+
+        System.out.println("combines two lists by alternatingly taking elements");
+        List<Integer> intList = createNumberList(10);
+        List<Character> letters = createCharList(10);
+        List<Object> result = new ArrayList<>();
+        int size = intList.size() <= letters.size() ? intList.size() : letters.size();
+        int i = 0;
+        for (; i < size; i++) {
+            result.add(intList.get(i));
             result.add(letters.get(i));
+        }
+
+       if (intList.size() != letters.size()) {
+            if (size == intList.size())
+                result.addAll(i * 2, letters.subList(i, letters.size()));
+            else
+                result.addAll(i * 2, intList.subList(i, intList.size()));
         }
         System.out.println(result);
     }
 
-
-
-    private List<Integer> createNumberList()
+    public void task11()
     {
-        Integer[] intNumbers = new Integer[10];
-        for(int i =0; i < intNumbers.length;i++)
+        System.out.println("merges two sorted lists into a new sorted list");
+        List<Integer> nums1 = createNumberList(10);
+        nums1.sort(Integer::compare);
+        List<Integer> nums2 = createNumberList(20);
+        nums2.sort(Integer::compare);
+
+        List<Object> result = new ArrayList<>();
+
+        int size = nums1.size() <= nums1.size() ? nums1.size() : nums2.size();
+
+        int i = 0;
+        int j = 0;
+        while ((nums1.size() <= nums1.size() ? i : j) < size ) {
+            if(nums1.get(i) <= nums2.get(j) && i < nums1.size()) {
+                result.add(nums1.get(i));
+                i++;
+            }
+            else {
+                result.add(nums2.get(j));
+                j++;
+            }
+        }
+
+        System.out.println(result);
+    }
+
+    public void task12()
+    {
+        System.out.println("rotates a list by k elements");
+        List<Integer> newNums = createNumberList(20);
+        newNums.sort(Integer::compare);
+        List<Integer> newNums2 = new ArrayList<>(newNums);
+        System.out.println("Before rotating \n" + newNums);
+        int n = kuz.getRandomIntInRange(1,6);
+        System.out.println("Number by which we rotate " + n);
+
+        for(int k = 0; k < n; k++)
         {
-            intNumbers[i] = kuz.getRandomIntInRange(0,100);
+            int tmp = newNums.get(0);
+            int i = 0;
+            for(; i < newNums.size()-1; i++)
+            {
+                newNums.set(i, newNums.get(i+1));
+            }
+            newNums.set(i, tmp);
+        }
+
+        System.out.println("After rotating \n" + newNums);
+
+
+        System.out.println("Rotating bt collections method");
+        System.out.println("Before rotating\n" + newNums2);
+        System.out.println("Number by which we rotate " + n);
+        Collections.rotate(newNums2,n);
+        System.out.println();
+        System.out.println("After rotating \n" + newNums2);
+        System.out.println("As we can see rotation from collections is in the opposite direction");
+
+        Collections.rotate(newNums2, -2*n);
+        System.out.println("After opposite rotating with collections \n" + newNums2);
+
+    }
+
+
+    public void task13() {
+        System.out.println("computes the list of the first 100 Fibonacci numbers");
+
+        BigInteger[] fib = new BigInteger[100];
+        fib[0] = BigInteger.valueOf(1);
+        fib[1] = BigInteger.valueOf(1);
+        for(int i=2; i < fib.length; i++)
+        {
+            fib[i] = fib[i-1].add(fib[i-2]);
+        }
+        System.out.println(Arrays.toString(fib));
+    }
+
+
+    public void task14() {
+        System.out.println("takes a number and returns a list of its digits");
+        int n = kuz.getRandomIntInRange(0, 10000);
+        int n2 = n;
+        System.out.println("Number is " + n);
+
+        char[] charArr = String.valueOf(n).toCharArray(); //LOL way
+
+        System.out.println("With char array " + Arrays.toString(charArr));
+
+        List<Integer> numsList = new ArrayList<>();
+        while (n > 0) {
+            numsList.add(n % 10);   //Norm way
+            n /= 10;
+        }
+        Collections.reverse(numsList);
+        System.out.println("With list and reverse " +numsList);
+
+        int[] numsArr = new int[getNumberOfDigitsInInt(n2)];
+        for(int i = numsArr.length-1; i >= 0; i--)
+        {
+            numsArr[i]=n2 % 10;    //PogU way
+            n2 /= 10;
+        }
+
+        System.out.println("With calc of digits and a primitive array " + Arrays.toString(numsArr));
+    }
+*/
+
+    public void task15() {
+        int a = kuz.getRandomIntInRange(0, 10000);
+        int b = kuz.getRandomIntInRange(0, 10000);
+
+
+    }
+
+
+
+    private int addByKarasuba(int a, int b){
+        return 0;
+    }
+
+    private int subtractByKarasuba(int a, int b){
+        return 0;
+    }
+    private int multiplyByKarasuba(int a, int b){
+        return 0;
+    }
+
+
+
+    private int getNumberOfDigitsInInt(int number) {
+
+        if (number < 100000) {
+            if (number < 100) {
+                if (number < 10) {
+                    return 1;
+                } else {
+                    return 2;
+                }
+            } else {
+                if (number < 1000) {
+                    return 3;
+                } else {
+                    if (number < 10000) {
+                        return 4;
+                    } else {
+                        return 5;
+                    }
+                }
+            }
+        } else {
+            if (number < 10000000) {
+                if (number < 1000000) {
+                    return 6;
+                } else {
+                    return 7;
+                }
+            } else {
+                if (number < 100000000) {
+                    return 8;
+                } else {
+                    if (number < 1000000000) {
+                        return 9;
+                    } else {
+                        return 10;
+                    }
+                }
+            }
+        }
+
+    }
+
+    private List<Integer> createNumberList(int num) {
+        Integer[] intNumbers = new Integer[num];
+        for (int i = 0; i < intNumbers.length; i++) {
+            intNumbers[i] = kuz.getRandomIntInRange(0, 100);
         }
         return new ArrayList<>(List.of(intNumbers));
     }
 
-    private List<Character> createCharList()
-    {
-        Character [] charArray = new Character[10];
+    private List<Character> createCharList(int num) {
+        Character[] charArray = new Character[num];
 
-        for(int i=0; i < charArray.length;i++)
-        {
-            char a = (char)kuz.getRandomIntInRange(97,122);
+        for (int i = 0; i < charArray.length; i++) {
+            char a = (char) kuz.getRandomIntInRange(97, 122);
             charArray[i] = a;
         }
         return new ArrayList<>(List.of(charArray));
@@ -231,8 +418,8 @@ public class TasksListsStrings {
 
     private boolean isAPerfectSquare(Integer num) {
 
-        for(int i = 1; i * i <= num; i++) {
-            if (num.equals(i*i))
+        for (int i = 1; i * i <= num; i++) {
+            if (num.equals(i * i))
                 return true;
         }
         return false;

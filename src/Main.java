@@ -22,13 +22,11 @@ public class Main {
 
         Method[] methodsListsStrings = tasksListsStrings.getClass().getDeclaredMethods();
 
-        for(Method method : methodsListsStrings)
-        {
-            if(Modifier.isPublic(method.getModifiers()) && !method.isVarArgs()) {
+        for (Method method : methodsListsStrings) {
+            if (Modifier.isPublic(method.getModifiers()) && !method.isVarArgs()) {
                 method.invoke(tasksListsStrings);
                 System.out.println();
             }
         }
-
     }
 }
